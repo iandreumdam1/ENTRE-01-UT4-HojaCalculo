@@ -5,7 +5,7 @@
  *  En cada fila la empresa "apunta" los ingresos y gastos en 
  *  una determinada fecha
  * 
- * @author -   
+ * @author - Ibai Andreu  
  *  
  */
 public class HojaCalculo
@@ -66,8 +66,23 @@ public class HojaCalculo
      * (dependerá de cuántas filas estén a null)
      */
     public int getNumeroFilas() {
-        
-        return 0;
+        int filas = 0;
+        if (fila1 == null){   
+        }
+        else{
+          filas ++;  
+        }
+        if (fila2 == null){ 
+        }
+        else{
+          filas ++;  
+        }
+        if (fila3 == null){   
+        }
+        else{
+          filas ++;  
+        }
+        return filas;
 
     }
 
@@ -76,7 +91,13 @@ public class HojaCalculo
      * (tiene exactamente 3 filas)
      */
     public boolean hojaCompleta() {
-        return true;
+        if(getNumeroFilas() == 3){
+            return true;
+        }
+        else{
+          return false;  
+        }
+        
 
     }
 
@@ -87,8 +108,18 @@ public class HojaCalculo
      * si se añade como primera, segunda o tercera fila (no han de quedar huecos)
      */
     public void addFila(Fila fila) {
-         
-
+        if (fila1 == null) {
+            this.fila1 = fila;
+        }
+        else if(fila2 == null){
+            this.fila2 = fila;
+        }
+        else if (fila3 == null){
+            this.fila3 = fila;
+        }
+        else{
+            System.out.println("FilaX no se puede añadir en HOJAX");
+        }
     }
 
     /**
@@ -97,7 +128,19 @@ public class HojaCalculo
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
-         
+          Fila fila = new Fila(id, fecha, ingresos, gastos);
+        if (fila1 == null) {
+            addFila(fila);
+        }
+        else if(fila2 == null){
+            addFila(fila);
+        }
+        else if (fila3 == null){
+            addFila(fila);
+        }
+        else{
+            System.out.println("FilaX no se puede añadir en HOJAX");
+        }
 
     }
 
@@ -106,9 +149,11 @@ public class HojaCalculo
      * todas las filas que incluye la hoja
      */
     public double getTotalIngresos() {
-         
-
-        return 0;
+        double totalIngresos = 0;
+        totalIngresos += fila1.getIngresos();
+        totalIngresos += fila2.getIngresos();
+        totalIngresos += fila3.getIngresos();
+        return totalIngresos;
 
     }
 
@@ -117,7 +162,11 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getTotalGastos() {
-        return 0;
+        double totalGastos = 0;
+        totalGastos += fila1.getGastos();
+        totalGastos += fila2.getGastos();
+        totalGastos += fila3.getGastos();
+        return totalGastos;
 
     }
 
@@ -126,7 +175,11 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getBeneficio() {
-        return 0;
+        double totalBeneficio = 0;
+        totalBeneficio += fila1.getBeneficio();
+        totalBeneficio += fila2.getBeneficio();
+        totalBeneficio += fila3.getBeneficio();
+        return totalBeneficio;
 
     }
 
@@ -135,8 +188,18 @@ public class HojaCalculo
      * con el formato exacto que indica el enunciado
      */
     public String toString() {
-         
-        return null;
+        return String.format("%8s\n %23s %16s %16s %16s\n" +
+        fila1.toString() + "\n" + fila2.toString() + "\n" + fila3.toString() + 
+        "\n---------------------------------------------------------------------\n" +
+        
+        "%40.2f€ %15.2f€ %+15.2f€",
+        getNombre(),
+        "FECHA", "INGRESOS", "GASTOS", "BENEFICIOS",
+        getTotalIngresos(), getTotalGastos(), getBeneficio());
+        
+        
+        
+        
 
     }
 
@@ -147,9 +210,8 @@ public class HojaCalculo
      */
     public HojaCalculo duplicarHoja() {
         
-        
-        
-       return null;
+        return null;
+   
     }
 
    
