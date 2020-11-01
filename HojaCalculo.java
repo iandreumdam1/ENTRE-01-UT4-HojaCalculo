@@ -118,7 +118,7 @@ public class HojaCalculo
             this.fila3 = fila;
         }
         else{
-            System.out.println("FilaX no se puede añadir en HOJAX");
+            System.out.println(fila.getId() + " no se puede añadir en " + getNombre());
         }
     }
 
@@ -139,7 +139,7 @@ public class HojaCalculo
             addFila(fila);
         }
         else{
-            System.out.println("FilaX no se puede añadir en HOJAX");
+            System.out.println(fila.getId() + " no se puede añadir en " + getNombre());
         }
 
     }
@@ -209,8 +209,11 @@ public class HojaCalculo
      * Al duplicar la hoja se duplicarán también las filas que contenga
      */
     public HojaCalculo duplicarHoja() {
-        
-        return null;
+        HojaCalculo duplicar = new HojaCalculo("Duplicada " + this.getNombre());
+        duplicar.addFila(this.fila1);
+        duplicar.addFila(this.fila2);
+        duplicar.addFila(this.fila3);
+        return duplicar;
    
     }
 
