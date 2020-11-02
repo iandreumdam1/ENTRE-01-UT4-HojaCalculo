@@ -70,17 +70,17 @@ public class HojaCalculo
         if (fila1 == null){   
         }
         else{
-          filas ++;  
+            filas ++;  
         }
         if (fila2 == null){ 
         }
         else{
-          filas ++;  
+            filas ++;  
         }
         if (fila3 == null){   
         }
         else{
-          filas ++;  
+            filas ++;  
         }
         return filas;
 
@@ -95,12 +95,10 @@ public class HojaCalculo
             return true;
         }
         else{
-          return false;  
+            return false;  
         }
-        
 
     }
-
     /**
      * Se añade una nueva fila a la hoja
      * Si la hoja está completa se muestra el mensaje "FilaX no se puede añadir en HOJAX"
@@ -128,7 +126,7 @@ public class HojaCalculo
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
-          Fila fila = new Fila(id, fecha, ingresos, gastos);
+        Fila fila = new Fila(id, fecha, ingresos, gastos);
         if (fila1 == null) {
             addFila(fila);
         }
@@ -189,16 +187,14 @@ public class HojaCalculo
      */
     public String toString() {
         return String.format("%8s\n %23s %16s %16s %16s\n" +
-        fila1.toString() + "\n" + fila2.toString() + "\n" + fila3.toString() + 
-        "\n---------------------------------------------------------------------\n" +
-        
-        "%40.2f€ %15.2f€ %+15.2f€",
-        getNombre(),
-        "FECHA", "INGRESOS", "GASTOS", "BENEFICIOS",
-        getTotalIngresos(), getTotalGastos(), getBeneficio());
-        
-        
-        
+            fila1.toString() + "\n" + fila2.toString() + "\n" + fila3.toString() + 
+            "\n---------------------------------------------------------------------\n" +
+
+            "%40.2f€ %15.2f€ %+15.2f€",
+            getNombre(),
+            "FECHA", "INGRESOS", "GASTOS", "BENEFICIOS",
+            getTotalIngresos(), getTotalGastos(), getBeneficio());
+
         
 
     }
@@ -214,8 +210,7 @@ public class HojaCalculo
         duplicar.addFila(this.fila2);
         duplicar.addFila(this.fila3);
         return duplicar;
-   
+
     }
 
-   
 }

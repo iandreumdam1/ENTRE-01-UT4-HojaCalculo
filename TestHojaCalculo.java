@@ -27,7 +27,7 @@ public class TestHojaCalculo
            test.addFila("Fila1", new Fecha(4,10,2020), 25.50, 132);
            test.addFila("Fila2", new Fecha(4,10,2020), 300, 350);
            test.addFila("Fila3", new Fecha(1,1,2020), 0, 0);
-           test.addFila("Fila4", new Fecha(1,1,2020), 0, 0);//no me funciona con el primer constructor de la clase Fila.
+           test.addFila("Fila4", new Fecha(1,1,2020), 0, 0);
            System.out.println(test.toString());
            System.out.println(test.duplicarHoja());
     }
